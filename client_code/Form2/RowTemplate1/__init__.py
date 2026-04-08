@@ -1,11 +1,12 @@
-from ._anvil_designer import Form1Template
+from ._anvil_designer import RowTemplate1Template
 from anvil import *
+import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-import anvil.server
 
-class Form1(Form1Template):
+
+class RowTemplate1(RowTemplate1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -15,4 +16,4 @@ class Form1(Form1Template):
   @handle("button_1", "click")
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('Form2')
+    open_form('Form3', kurs_id=self.item['kurs_id'])
